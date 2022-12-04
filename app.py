@@ -19,21 +19,12 @@ def favicon():
 
 @app.route('/')
 def index():
-    return render_template('index.html',
-                           book_name=list(popularity_df['Book-Title'].values),
-                           author=list(popularity_df['Book-Author'].values),
-                           img_url=list(popularity_df['Image-URL-L'].values),
-                           year_of_publication=list(
-                               popularity_df['Year-Of-Publication'].values),
-                           rating=list(popularity_df['avg_ratings'].values),
-                           votes=list(popularity_df['num_ratings'].values)
-                           )
+    return render_template('index.html', book_name=list(popularity_df['Book-Title'].values), author=list(popularity_df['Book-Author'].values), img_url=list(popularity_df['Image-URL-L'].values), year_of_publication=list(popularity_df['Year-Of-Publication'].values), rating=list(popularity_df['avg_ratings'].values), votes=list(popularity_df['num_ratings'].values))
 
 
 @app.route('/recommend')
 def recommend_ui():
-    return render_template('recommend.html',
-                           book_name=list(popularity_df['Book-Title'].values))
+    return render_template('recommend.html', book_name=list(popularity_df['Book-Title'].values))
 
 
 @app.route('/recommend_books', methods=['post'])
