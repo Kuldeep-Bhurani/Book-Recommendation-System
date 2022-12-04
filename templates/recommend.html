@@ -38,14 +38,15 @@
         <h1 class="text-center mt-3 mb-3" style="color: #00002c;">Recommendations</h1>
     </div>
     <form class="input-group mx-auto p-3" style="max-width: 75rem;" action="/recommend_books" method="post">
-        <input list="all_books" type="text" class="form-control imput-outline-dark" name="user_input"
-            placeholder="Enter The Book Name" aria-label="Book Name" aria-describedby="button-addon2">
+        <input oninput="searchFunction()" id="userInput" list="all_books" type="text"
+            class="form-control imput-outline-dark" name="user_input" placeholder="Enter The Book Name"
+            aria-label="Book Name" aria-describedby="button-addon2">
         <datalist id="all_books">
             {% for i in range(book_name|length) %}
             <option value="{{ book_name[i] }}">{{ book_name[i] }}</option>
             {% endfor %}
         </datalist>
-        <button class="btn btn-outline-dark" type="submit" id="button-addon2">Recommend</button>
+        <button class="btn btn-outline-dark" type="submit" id="button-addon2" disabled>Recommend</button>
     </form>
 
     <div class="d-flex p-5 flex-wrap">
@@ -76,5 +77,13 @@
         </div>
     </div>
 </body>
+<script>
+    function searchFunction() {
+        const currentValue = document.getElementById('userInput').value;
+        document.getElementById("button-addon2").disabled =
+            currentValue.length === 0 ||
+            document.querySelector('option[value="' + currentValue + '"]') === null;
+    }
+</script>
 
 </html>

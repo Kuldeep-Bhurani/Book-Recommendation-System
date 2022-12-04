@@ -47,9 +47,9 @@ def recommend():
             item.extend(list(temp_df['avg_ratings'].values))
             item.extend(list(temp_df['num_ratings'].values))
             data.append(item)
-        return render_template('recommend.html', data=data)
+        return render_template('recommend.html', data=data, book_name=list(popularity_df['Book-Title'].values))
     else:
-        return render_template('recommend.html', err='This book was not found in the database, try another book!')
+        return render_template('recommend.html', err='This book was not found in the database, try another book!', book_name=list(popularity_df['Book-Title'].values))
 
 
 if __name__ == '__main__':
