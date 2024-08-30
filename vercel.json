@@ -11,12 +11,5 @@
       "src": "/(.*)",
       "dest": "/app.py"
     }
-  ],
-  "configurations": [
-    {
-      "env": {
-        "SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL" = true
-      }
-    }
   ]
 }
