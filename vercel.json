@@ -11,7 +11,7 @@
       "src": "/(.*)",
       "dest": "/app.py"
     }
-  ]
+  ],
   "configurations": [
     {
       "env": {
