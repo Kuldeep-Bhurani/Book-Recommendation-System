@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request, send_from_directory
-import pickle
+import pandas as pd
 import numpy as np
 import os
 
-popularity_df = pickle.load(open('./models/popularity.pkl', 'rb'))
-books_pt = pickle.load(open('./models/books_pt.pkl', 'rb'))
-books_n_popularity_df = pickle.load(
-    open('./models/books_n_popularity_df.pkl', 'rb'))
-model_knn = pickle.load(open('./models/model_knn.pkl', 'rb'))
+popularity_df = pd.read_pickle('./models/popularity.pkl')
+books_pt = pd.read_pickle('./models/books_pt.pkl')
+books_n_popularity_df = pd.read_pickle('./models/books_n_popularity_df.pkl')
+model_knn = pd.read_pickle('./models/model_knn.pkl')
 
 app = Flask(__name__)
 
